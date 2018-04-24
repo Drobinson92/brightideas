@@ -1,0 +1,7 @@
+body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}input{margin-bottom: 5px;}#reg{display: inline-block}#log{display: inline-block; margin-left: 25%; vertical-align: top;}label{width: 135px;}
+.logout{
+    float: right;
+    margin-left: 25px;
+}
+hr{border-width: 5px; color: black; border-color: black;}
+#welcome{margin-bottom: 75px;}

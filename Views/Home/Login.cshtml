@@ -1,0 +1,12 @@
+@model cbelt.Models.LoginViewModel
+<h2>Login</h2>
+
+<form asp-action="Login" asp-controller="Home" method="POST">
+    <label  asp-for="Email"></label>
+    <input asp-for="Email"><br>
+    <label  asp-for="Password"></label>
+    <input type='password' asp-for="Password"><br>
+    <input class='btn btn-primary' type='submit' value='Login'>
+</form>
+<span class="text-danger bg-warning" asp-validation-for="Email"></span><br>
+<span class="text-danger bg-warning" asp-validation-for="Password"></span>

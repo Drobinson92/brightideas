@@ -1,0 +1,15 @@
+@model cbelt.Models.Idea
+<h4 id='welcome'>Hi @ViewBag.user.Alias!</h4>
+<a class='logout' asp-action="Logout" asp-controller="Home">Logout</a>
+<form asp-action="AddIdea" asp-controller="Idea" method='POST'>
+<input style="width: 60%; margin-bottom: 50px;" asp-for="IdeaText" placeholder="Post something witty here...."> <input type='Submit' value="Idea!">
+</form>
+@foreach(Idea i in @ViewBag.allIdeas){
+    <p><a asp-action="ShowUser" asp-controller="Idea" asp-route-id="@i.Creator.UserId">@i.Creator.Alias</a> says:</p>
+    <textarea readonly cols='100' rows='4'>@i.IdeaText</textarea>if(@i.CreatorId == @ViewBag.user.UserId){<a asp-action="Delete" asp-controller='Idea' asp-route-id="@i.IdeaId">Delete</a>}<br>
+    <p><a asp-action="Like" asp-controller="Idea" asp-route-id="@i.IdeaId">Like</a> &emsp;&emsp;
+    <a asp-action="ShowIdea" asp-controller="Idea" asp-route-id="@i.IdeaId">@{int count = 0;}@foreach(IdeaLikes o in @i.IdeaLikes){
+        count += o.Quantity;
+        }
+        @count people</a> like this</p>
+}

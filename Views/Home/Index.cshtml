@@ -1,0 +1,30 @@
+﻿@model cbelt.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id='reg'>
+<h2>Register</h2>
+<form  asp-action="Register" asp-controller="Home" method="POST">
+    <label  asp-for="Name"></label>
+    <input asp-for="Name"><br>
+    <label  asp-for="Alias"></label>
+    <input asp-for="Alias"><br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email"><br>
+    <label  asp-for="Password"></label>
+    <input type='password' asp-for="Password"><br>
+    <label  asp-for="PasswordCheck"></label>
+    <input type='password' asp-for="PasswordCheck"><br>
+    <input class='btn btn-primary' type='submit' value="Register">
+</form>
+<div class="text-danger bg-warning" asp-validation-summary="All"></div>
+@if(ViewBag.Error != null){
+    <p class="text-danger bg-warning">@ViewBag.Error</p>
+}
+</div>
+<div id='log'>
+    
+
+@Html.Partial("Login")
+</div>

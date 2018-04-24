@@ -1,0 +1,16 @@
+<a class='logout' asp-action="Logout" asp-controller="Home">Logout</a> <a class='logout' asp-action='Dash' asp-controller="Idea">Bright Ideas</a> 
+<p><a asp-action="ShowUser" asp-controller="Idea" asp-route-id="@ViewBag.idea.Creator.UserId">@ViewBag.idea.Creator.Name</a> says:<textarea readonly rows='5' cols='100'>@ViewBag.idea.IdeaText</textarea></p>
+
+
+<h3>People who liked this post:</h3>
+<table class="table table-bordered table-striped">
+    <th>Alias</th>
+    <th>Name</th>
+    
+@foreach(IdeaLikes i in @ViewBag.idea.IdeaLikes){
+    <tr>
+        <td><a asp-action='ShowUser' asp-controller='Idea' asp-route-id="@i.User.UserId">@i.User.Alias</a></td>
+        <td>@i.User.Name</td>
+    </tr>
+}
+</table>
